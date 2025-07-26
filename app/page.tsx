@@ -66,7 +66,12 @@ export default function Home() {
         throw new Error(data.error || 'Failed to find location');
       }
 
-      const locationData: LocationData = await geoResponse.json();
+      const geoData = await geoResponse.json();
+      if (!geoData.results || geoData.results.length === 0) {
+        throw new Error('No locations found for this city');
+      }
+
+      const locationData: LocationData = geoData.results[0];
 
       const weatherResponse = await fetch(
         `/api/weather?latitude=${locationData.latitude}&longitude=${locationData.longitude}`
