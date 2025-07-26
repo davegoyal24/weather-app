@@ -18,3 +18,4 @@ A modern weather application built with Next.js and deployed on Azure Static Web
 - Framer Motion
 - Azure Static Web Apps
 - GitHub Actions CI/CD
+# Weather App Test
